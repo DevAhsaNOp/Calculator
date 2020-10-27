@@ -17,6 +17,6 @@ Set Up Git:
 <h3>Step-5</h3><i>After Commiting you need to push your project to github</i></br> <b>Pushing Command::</b> git push -u origin ("BRANCH NAME") default is set to be on ==> master<hr>
 
 <h3>Other Commands</h3>
-<ul><li><b>Change Directory Command:: </b>cd "DIRECTORY NAME/"</li><li><b>Remote Repositry Command:: </b>git remote add origin master (url)</li></ul>
+<ul><li><b>Change Directory Command:: </b>cd "DIRECTORY NAME/"</li><li><b>Remote Repositry Command:: </b>git remote add origin master (url)</li><li><a href="https://pdfhost.io/v/hO4YEV4gN_Git_Cheat_Sheet.pdf">Github Commands Cheatsheet<li><a href="https://pdfhost.io/v/ADxeUoeMH_AtlassianGitCheatsheetpdf.pdf">Github Cheatsheet</a></li></a></li></ul>
 
 <b><i>Credits:: </i></b> <a href="https://github.com/Ahsan804">Ahsan804❤️</a>
