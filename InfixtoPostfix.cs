@@ -16,20 +16,31 @@ namespace ConsoleApp2
             int len = (postfix.Length);
             for (int i = 0; i < len; i++)
             {
+                string x = ""; float read_x = 0; char c = ' ';
                 if (postfix[i] == ' ')
                     continue;
-                else if (char.IsDigit(postfix[i]))
-                {
-                    int num = 0;
+                #region multidigit_check
+                //else if (char.IsDigit(postfix[i]))
+                //{
+                //int num = 0;
 
-                    while (char.IsDigit(postfix[i]))
-                    {
-                        num = num * 10 + (postfix[i] - '0');
-                        i++;
+                //while (char.IsDigit(postfix[i]))
+                //{
+                //    num = num * 10 + (postfix[i] - '0');
+                //    i++;
+                //}
+                //i--;
+                //stack.Push(num);
+                //}
+                #endregion
+                //If c is a number or decimal point
+                else if (CharUtil.IsDigit(c = postfix[i]))
+                    {                        x += c;
+                        //The cycle reading includes a decimal point (for example, 8.88+7.777, here will be read in three times, the first cycle reads 8.88, the second time reads +, the third cycle reads 7.77)
+                        while (i < len - 1 && CharUtil.IsDigit(c = postfix[++i]))                            x += c;                        read_x = float.Parse(x);
+                        //Read the data into the data stack
+                        stack.Push(read_x);
                     }
-                    i--;
-                    stack.Push(num);
-                }
                 else
                 {
                     op1 = stack.Pop();
@@ -64,93 +75,6 @@ namespace ConsoleApp2
         }
         #endregion
 
-        #region faltu
-        //public void infix_postfix(char[] infix)
-        //{
-        //    int len, i, j = 0;
-        //    char[] postfix = new char[100];
-        //    Stack<char> stack = new Stack<char>();
-        //    len = (infix.Length);
-        //    infix[len - 1] = ')';
-        //    stack.Push('(');
-        //    for (i = 0; i < len; i++)
-        //    {
-        //        if (prec(infix[i]) == 0)
-        //        {
-        //            postfix[j] = infix[i];
-        //            j++;
-        //        }
-        //        //else if (prec(infix[i]) == 0)
-        //        //{
-        //        //    postfix[j] = infix[i];
-        //        //    j++;
-        //        //}
-        //        else if (prec(infix[i]) == 1)
-        //        {
-        //            stack.Push(infix[i]);
-        //        }
-        //        else if (prec(infix[i]) == 2)
-        //        {
-        //            char ch;
-        //            ch = stack.Pop();
-        //            while (ch != '(')
-        //            {
-        //                postfix[j] = ch;
-        //                j++;
-        //                ch = stack.Pop();
-        //            }
-        //        }
-        //        else if (prec(infix[i]) == 3)
-        //        {
-        //            char ch;
-        //            ch = stack.Pop();
-        //            while (prec(ch) >= 3)
-        //            {
-        //                postfix[j] = ch;
-        //                j++;
-        //                ch = stack.Pop();
-        //            }
-        //            stack.Push(ch);
-        //            stack.Push(infix[i]);
-        //        }
-        //        else if (prec(infix[i]) == 4)
-        //        {
-        //            char ch;
-        //            ch = stack.Pop();
-        //            while (prec(ch) >= 4)
-        //            {
-        //                postfix[j] = ch;
-        //                j++;
-        //                ch = stack.Pop();
-        //            }
-        //            stack.Push(ch);
-        //            stack.Push(infix[i]);
-        //        }
-        //        else if (prec(infix[i]) == 5)
-        //        {
-        //            char ch;
-        //            ch = stack.Pop();
-        //            while (prec(ch) >= 5)
-        //            {
-        //                postfix[j] = ch;
-        //                j++;
-        //                ch = stack.Pop();
-        //            }
-        //            stack.Push(ch);
-        //            stack.Push(infix[i]);
-        //        }
-        //        //displayp(p);
-        //    }
-        //    postfix[j] = '\0';
-        //    Console.WriteLine("\n\nPOSTFIX EXPRESSION: ");
-        //    for (i = 0; i < j; i++)
-        //    {
-        //        Console.Write(" " + postfix[i]);
-        //    }
-        //    //postfix_evaluation(postfix.ToString());
-        //}
-        #endregion
-
         #region InfixtoPostfix_Conversion
         public void infixToPostfix(string exp)
         {
@@ -180,7 +104,12 @@ namespace ConsoleApp2
                         i++;
                     }
                     i--;
-                    result = result + " " + operand.ToString();
+                    result = result + operand.ToString() + " ";
+
+                }
+                else if (exp[i]=='.')
+                {
+                    result = result.Trim() + exp[i];
                 }
 
                 // If the scanned character is an '(', push it to the stack. 
@@ -227,5 +156,14 @@ namespace ConsoleApp2
             postfix_evaluation(result);
         }
         #endregion
+  class CharUtil
+        {
+            public static bool IsDigit(char c)
+            {
+                return (c >= 48 && c <= 57 || c == '.') ? true : false;
+            }
+        }
+
+
     }
 }
