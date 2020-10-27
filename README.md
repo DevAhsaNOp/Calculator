@@ -9,7 +9,7 @@ Set Up Git:
 <li>git config --global user.email youremail@domain.com</li>
 </ul>
 <h1>How to clonned my project on your PC and start working on it and How  to upload it to my Repositry</br></h1>
-<a href="https://ibb.co/zVQmfWB"><img src="https://i.ibb.co/VYJLB0z/1.png" alt="1" border="0"></a><br/><b><i>Follow the Picture Shown Step for Coping (url)</i></b><br />
+<a target="_blank" href="https://ibb.co/zVQmfWB"><img src="https://i.ibb.co/VYJLB0z/1.png" alt="1" border="0"></a><br/><b><i>Follow the Picture Shown Step for Coping (url)</i></b><br />
 <h3>Step-1</h3><b>Clonning Command::</b> git clone (url paste here)<hr>
 <h3>Step-2</h3><i>Creating New Branch of your own</i></br><b>Branch Command::</b> git checkout -b "BRANCH NAME"<hr>
 <h3>Step-3</h3><i>If you feel your work on project is completed lets add your work on your own branch</i></br><b>Files Adding Command::</b> git add (file names) "add passing file name" and (git add .) uses to add all files<hr>
@@ -17,6 +17,6 @@ Set Up Git:
 <h3>Step-5</h3><i>After Commiting you need to push your project to github</i></br> <b>Pushing Command::</b> git push -u origin ("BRANCH NAME") default is set to be on ==> master<hr>
 
 <h3>Other Commands</h3>
-<ul><li><b>Change Directory Command:: </b>cd "DIRECTORY NAME/"</li><li><b>Remote Repositry Command:: </b>git remote add origin master (url)</li><li><a href="https://pdfhost.io/v/hO4YEV4gN_Git_Cheat_Sheet.pdf">Github Commands Cheatsheet<li><a href="https://pdfhost.io/v/ADxeUoeMH_AtlassianGitCheatsheetpdf.pdf">Github Cheatsheet</a></li></a></li></ul>
+<ul><li><b>Change Directory Command:: </b>cd "DIRECTORY NAME/"</li><li><b>Remote Repositry Command:: </b>git remote add origin master (url)</li><li><a target="_blank" href="https://pdfhost.io/v/hO4YEV4gN_Git_Cheat_Sheet.pdf">Github Commands Cheatsheet<li><a target="_blank" href="https://pdfhost.io/v/ADxeUoeMH_AtlassianGitCheatsheetpdf.pdf">Github Cheatsheet</a></li></a></li></ul>
 
 <b><i>Credits:: </i></b> <a href="https://github.com/Ahsan804">Ahsan804❤️</a>
