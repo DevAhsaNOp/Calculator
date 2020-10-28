@@ -35,15 +35,16 @@ namespace ConsoleApp2
                 #endregion
                 //If c is a number or decimal point
                 else if (CharUtil.IsDigit(c = postfix[i]))
-                    {
+                {
+                    x += c;
+                    //The cycle reading includes a decimal point (for example, 8.88+7.777, here will be read in three times, the first cycle reads 8.88,
+                    //the second time reads +, the third cycle reads 7.77)
+                    while (i < len - 1 && CharUtil.IsDigit(c = postfix[++i]))
                         x += c;
-                        //The cycle reading includes a decimal point (for example, 8.88+7.777, here will be read in three times, the first cycle reads 8.88, the second time reads +, the third cycle reads 7.77)
-                        while (i < len - 1 && CharUtil.IsDigit(c = postfix[++i]))
-                            x += c;
-                        read_x = float.Parse(x);
-                        //Read the data into the data stack
-                        stack.Push(read_x);
-                    }
+                    read_x = float.Parse(x);
+                    //Read the data into the data stack
+                    stack.Push(read_x);
+                }
                 else
                 {
                     op1 = stack.Pop();
@@ -110,7 +111,7 @@ namespace ConsoleApp2
                     result = result + operand.ToString() + " ";
 
                 }
-                else if (exp[i]=='.')
+                else if (exp[i] == '.')
                 {
                     result = result.Trim() + exp[i];
                 }
@@ -159,17 +160,16 @@ namespace ConsoleApp2
             postfix_evaluation(result);
         }
         #endregion
-  
 
-    class CharUtil
+        #region CheckingDigitOrPoint
+        class CharUtil
         {
             public static bool IsDigit(char c)
             {
                 return (c >= 48 && c <= 57 || c == '.') ? true : false;
             }
         }
-
-
+        #endregion
 
     }
 }
