@@ -8,6 +8,7 @@ namespace ConsoleApp2
 {
     class InfixtoPostfix : SOperator
     {
+
         #region InfixtoPostfix_Evaluation
         public void postfix_evaluation(string postfix)
         {
@@ -80,9 +81,9 @@ namespace ConsoleApp2
         #endregion
 
         #region InfixtoPostfix_Conversion
-        public void infixToPostfix(string exp)
+        public unsafe void infixToPostfix(string exp)
         {
-            // initializing empty String for result 
+            //initializing empty String for result 
             string result = "";
 
             // initializing empty stack 
@@ -93,15 +94,12 @@ namespace ConsoleApp2
 
                 char c = exp[i];
                 // If the scanned character is an operand, add it to output. 
+
                 if (char.IsWhiteSpace(c))
                 {
                     continue;
                 }
 
-                //else if (exp[i] == '-' && (!char.IsDigit(exp[++i])) && (char.IsDigit(exp[--i])))
-                //{
-                //    result = (exp[i] + exp[++i]).ToString();
-                //}
                 else if (char.IsDigit(exp[i]))
                 {
                     int operand = 0;
@@ -114,23 +112,30 @@ namespace ConsoleApp2
                     result = result + operand.ToString() + " ";
 
                 }
-                else if (exp[i] == '-' && isDigi(exp[++i]) && (!isDigi(exp[--i])))
-                {
-                    int operand = 0;
-                    while (i < exp.Length && char.IsDigit(exp[++i]))
-                    {
-                        operand = (operand * 10) + (exp[i++] - '0');
-                        i--;
-                    }
-                    result = result.Trim() + string.Concat(exp[i], operand) + " ";
-                    --i;
 
-                }
+
+                //else if (exp[i] == '-' && isDigi(exp[++i]) && (!isDigi(exp[--i])))
+                //{
+                //    int operand = 0;
+                //    while (i < exp.Length && char.IsDigit(exp[++i]))
+                //    {
+                //        operand = (operand * 10) + (exp[i++] - '0');
+                //        i--;
+                //    }
+                //    result = result.Trim() + string.Concat(exp[i], operand) + " ";
+                //    --i;
+                //}
+
                 else if (exp[i] == '.')
                 {
                     result = result.Trim() + exp[i];
                 }
 
+
+                else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i])))
+                {
+                    result = string.Concat(exp[i], exp[++i]) + " ";
+                }
 
                 // If the scanned character is an '(', push it to the stack. 
                 else if (c == '(')
