@@ -90,20 +90,18 @@ namespace ConsoleApp2
 
             for (int i = 0; i < exp.Length; ++i)
             {
+
                 char c = exp[i];
-
-
                 // If the scanned character is an operand, add it to output. 
                 if (char.IsWhiteSpace(c))
                 {
                     continue;
                 }
 
-                //else if ((exp[i] == '+' || exp[i] == '-') && (!char.IsDigit(exp[i - 1])) && (char.IsDigit(exp[i + 1])))
+                //else if (exp[i] == '-' && (!char.IsDigit(exp[++i])) && (char.IsDigit(exp[--i])))
                 //{
-                //    result = (exp[i] + exp[i + 1]).ToString();
+                //    result = (exp[i] + exp[++i]).ToString();
                 //}
-
                 else if (char.IsDigit(exp[i]))
                 {
                     int operand = 0;
@@ -116,10 +114,23 @@ namespace ConsoleApp2
                     result = result + operand.ToString() + " ";
 
                 }
+                else if (exp[i] == '-' && isDigi(exp[++i]) && (!isDigi(exp[--i])))
+                {
+                    int operand = 0;
+                    while (i < exp.Length && char.IsDigit(exp[++i]))
+                    {
+                        operand = (operand * 10) + (exp[i++] - '0');
+                        i--;
+                    }
+                    result = result.Trim() + string.Concat(exp[i], operand) + " ";
+                    --i;
+
+                }
                 else if (exp[i] == '.')
                 {
                     result = result.Trim() + exp[i];
                 }
+
 
                 // If the scanned character is an '(', push it to the stack. 
                 else if (c == '(')
@@ -162,8 +173,17 @@ namespace ConsoleApp2
                 result = result + " " + stack.Pop();
             }
             Console.Write("Postfix Expression::" + result);
-            postfix_evaluation(result);
+            //postfix_evaluation(result);
         }
+
+        bool isDigi(char ch)
+        {
+            if (ch >= '0' && ch <= '9')
+                return true;
+            return false;
+        }
+
+
         #endregion
 
         #region CheckingDigitOrPoint
