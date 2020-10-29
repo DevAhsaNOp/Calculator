@@ -81,7 +81,7 @@ namespace ConsoleApp2
         #endregion
 
         #region InfixtoPostfix_Conversion
-        public unsafe void infixToPostfix(string exp)
+        public void infixToPostfix(string exp)
         {
             //initializing empty String for result 
             string result = "";
@@ -134,7 +134,8 @@ namespace ConsoleApp2
 
                 else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i])))
                 {
-                    result = string.Concat(exp[i], exp[++i]) + " ";
+                    result += string.Concat(exp[i], exp[++i]).Trim() + " ";
+
                 }
 
                 // If the scanned character is an '(', push it to the stack. 
