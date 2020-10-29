@@ -99,6 +99,11 @@ namespace ConsoleApp2
                     continue;
                 }
 
+                //else if ((exp[i] == '+' || exp[i] == '-') && (!char.IsDigit(exp[i - 1])) && (char.IsDigit(exp[i + 1])))
+                //{
+                //    result = (exp[i] + exp[i + 1]).ToString();
+                //}
+
                 else if (char.IsDigit(exp[i]))
                 {
                     int operand = 0;
