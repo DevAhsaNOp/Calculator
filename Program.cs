@@ -17,7 +17,7 @@ namespace ConsoleApp2
             postfix = Console.ReadLine();
             if (CheckValid(postfix))
             {
-                infixtoPostfix.postfix_evaluation(postfix);
+                infixtoPostfix.infixToPostfix(postfix);
             }
             else
             {
