@@ -28,7 +28,7 @@ namespace ConsoleApp2
 
         public static bool CheckValid(string my_string)
         {
-            string array = "0123456789+-*/().";
+            string array = "0123456789+-*/^().";
 
             int count = 0;
             for (int i = 0; i < my_string.Length; i++)

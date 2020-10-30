@@ -132,10 +132,9 @@ namespace ConsoleApp2
                 }
 
 
-                else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i])))
+                else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i * 2])))
                 {
                     result += string.Concat(exp[i], exp[++i]).Trim() + " ";
-
                 }
 
                 // If the scanned character is an '(', push it to the stack. 
