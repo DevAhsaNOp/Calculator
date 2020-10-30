@@ -114,7 +114,7 @@ namespace ConsoleApp2
                 }
 
 
-                //else if (exp[i] == '-' && isDigi(exp[++i]) && (!isDigi(exp[--i])))
+                //else if (exp[i] == '-' && isDigi(exp[++i]) && (!isDigi(exp[--i * 2])))
                 //{
                 //    int operand = 0;
                 //    while (i < exp.Length && char.IsDigit(exp[++i]))
@@ -122,8 +122,8 @@ namespace ConsoleApp2
                 //        operand = (operand * 10) + (exp[i++] - '0');
                 //        i--;
                 //    }
-                //    result = result.Trim() + string.Concat(exp[i], operand) + " ";
-                //    --i;
+                //    result = result + string.Concat(exp[i], operand).Trim() + " ";
+                //    //--i;
                 //}
 
                 else if (exp[i] == '.')
@@ -134,7 +134,7 @@ namespace ConsoleApp2
 
                 else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i * 2])))
                 {
-                    result += string.Concat(exp[i], exp[++i]).Trim() + " ";
+                    result = result + string.Concat(exp[i], exp[++i]).Trim() + " ";
                 }
 
                 // If the scanned character is an '(', push it to the stack. 
@@ -196,7 +196,7 @@ namespace ConsoleApp2
         {
             public static bool IsDigit(char c)
             {
-                return (c >= 48 && c <= 57 || c == '.') ? true : false;
+                return (c >= 48 && c <= 57 || c == '.' || c == '-') ? true : false;
             }
         }
         #endregion
