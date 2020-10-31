@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication.ExtendedProtection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -99,23 +100,29 @@ namespace ConsoleApp2
                 {
                     continue;
                 }
+                if (exp[i] == '!')
+                {
+                    result = result + exp[i];
+                }
 
                 else if (char.IsDigit(exp[i]))
                 {
                     int operand = 0;
+
                     while (i < exp.Length && char.IsDigit(exp[i]))
                     {
+
                         operand = (operand * 10) + (exp[i] - '0');
                         i++;
                     }
                     i--;
                     result = result + operand.ToString() + " ";
                 }
-
                 else if (exp[i] == '.')
                 {
                     result = result.Trim() + exp[i];
                 }
+
 
                 //else if (exp[i] == '-' && (isDigi(exp[++i])) && (!isDigi(exp[--i * 2])))
                 //{
