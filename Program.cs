@@ -13,7 +13,8 @@ namespace ConsoleApp2
             string postfix;
 
             InfixtoPostfix infixtoPostfix = new InfixtoPostfix();
-            Console.WriteLine("\t\t\t\t\tPlease Give Spaces In Writing Expression Like This :: ( 22 + 3 - (1 / 2))\n");
+            Console.WriteLine("\t\t\t\t\tPlease Give Spaces In Writing Expression Like This :: (22+3-(1/2))\n");
+            Console.WriteLine("\t\t\t\t\tIf Your Input Digit Contains - means it's a Negative Value replace - with  ! and Input Like this !22.1/3");
             Console.WriteLine("\n\nEnter the Infix Expression:: ");
             postfix = Console.ReadLine();
             if (CheckValid(postfix))

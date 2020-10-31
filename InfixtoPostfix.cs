@@ -43,6 +43,11 @@ namespace ConsoleApp2
                     //the second time reads +, the third cycle reads 7.77)
                     while (i < len - 1 && CharUtil.IsDigit(c = postfix[++i]))
                         x += c;
+                    //If any number contains ! replacing ! with - and then convert it into number 
+                    if (x.Contains("!"))
+                    {
+                        x = x.Replace("!", "-");
+                    }
                     read_x = float.Parse(x);
                     //Read the data into the data stack
                     stack.Push(read_x);
@@ -92,7 +97,6 @@ namespace ConsoleApp2
 
             for (int i = 0; i < exp.Length; ++i)
             {
-
                 char c = exp[i];
                 // If the scanned character is an operand, add it to output. 
 
@@ -118,6 +122,7 @@ namespace ConsoleApp2
                     i--;
                     result = result + operand.ToString() + " ";
                 }
+
                 else if (exp[i] == '.')
                 {
                     result = result.Trim() + exp[i];
@@ -170,7 +175,7 @@ namespace ConsoleApp2
                 result = result + " " + stack.Pop();
             }
             Console.Write("Postfix Expression::" + result);
-            //postfix_evaluation(result);
+            postfix_evaluation(result);
         }
 
         bool isDigi(char ch)
@@ -189,7 +194,7 @@ namespace ConsoleApp2
         {
             public static bool IsDigit(char c)
             {
-                return (c >= 48 && c <= 57 || c == '.') ? true : false;
+                return (c >= 48 && c <= 57 || c == '.' || c == '!') ? true : false;
             }
         }
         #endregion
