@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class SOperator
+    class SOperator : Functions
     {
         #region Precendence
         protected static int Prec(char ch)
