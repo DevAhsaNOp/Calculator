@@ -55,7 +55,14 @@ namespace ConsoleApp2
                 else
                 {
                     op1 = stack.Pop();
-                    op2 = stack.Pop();
+                    try
+                    {
+                        op2 = stack.Pop();
+                    }
+                    catch (Exception)
+                    {
+                        op2 = 0;
+                    }
                     switch (postfix[i])
                     {
                         case '+':
