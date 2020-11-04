@@ -10,24 +10,26 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            string postfix;
-            InfixtoPostfix infixtoPostfix = new InfixtoPostfix();
-            Console.WriteLine("\t\t\t\t\tPlease Give Spaces In Writing Expression Like This\n :: (22+3-(1/2))\n");
-            Console.WriteLine("\t\t\t\t\tIf Your Input Digit Contains - means it's a Negative Value replace - with  ! and Input Like this !22.1/3");
-            Console.WriteLine("\n\nEnter the Infix Expression:: ");
-            postfix = Console.ReadLine();
-            if (CheckValid(postfix))
-            {
-                infixtoPostfix.infixToPostfix(postfix);
-            }
-            else
-            {
-                Console.WriteLine("Invalid Input Please Give The Input in Correct Form");
-            }
-            Console.ReadLine();
-            //Functions Function = new Functions();
-            //Function.TRIGNOMETRY();
+            //string postfix;
+            //InfixtoPostfix infixtoPostfix = new InfixtoPostfix();
+            //Console.WriteLine("\t\t\t\t\tPlease Give Spaces In Writing Expression Like This\n :: (22+3-(1/2))\n");
+            //Console.WriteLine("\t\t\t\t\tIf Your Input Digit Contains - means it's a Negative Value replace - with  ! and Input Like this !22.1/3");
+            //Console.WriteLine("\n\nEnter the Infix Expression:: ");
+            //postfix = Console.ReadLine();
+            //if (CheckValid(postfix))
+            //{
+            //    infixtoPostfix.infixToPostfix(postfix);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid Input Please Give The Input in Correct Form");
+            //}
             //Console.ReadLine();
+            Functions Function = new Functions();
+            //Function.TRIGNOMETRY();
+            ////Console.ReadLine();
+            Function.Logarthimic_Function();
+            Console.ReadLine();
         }
 
         public static bool CheckValid(string my_string)

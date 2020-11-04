@@ -78,8 +78,16 @@ namespace ConsoleApp2
                             stack.Push(result);
                             break;
                         case '/':
-                            result = (float)(op2 / op1);
-                            stack.Push(result);
+                            if(op1==0)
+                            {
+                                throw new DivideByZero();
+
+                            }
+                            else
+                            {
+                                result = (float)(op2 / op1);
+                                stack.Push(result);
+                            }
                             break;
                         case '^':
                             result = (float)(Math.Pow(op2, op1));

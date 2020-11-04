@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DivideByZero.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="InfixtoPostfix.cs" />
+    <Compile Include="MathError.cs" />
+    <Compile Include="MyException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SOperator.cs" />
