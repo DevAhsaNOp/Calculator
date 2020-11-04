@@ -10,13 +10,13 @@ namespace ConsoleApp2
     {
         public double fact(double n)
         {
-           if (n <= 1)
-               return 1;
-           return n * fact(n - 1);  
+            if (n <= 1)
+                return 1;
+            return n * fact(n - 1);
         }
         public double nPr(double n, double r)
         {
-                return fact(n) / fact(n - r);  
+            return fact(n) / fact(n - r);
         }
         public double nCr(double n, double r)
         {
@@ -33,10 +33,10 @@ namespace ConsoleApp2
             return (a * b) / GCD(a, b);
         }
 
-        public void root_of_power(double n,int pow)
+        public void root_of_power(double n, int pow)
         {
             double result = Math.Pow(n, (double)1 / pow);
-            Console.Write("Root OF POWER {0} IS:{1}",pow,result);
+            Console.Write("Root OF POWER {0} IS:{1}", pow, result);
         }
         public void Logarthimic_Function()
         {
@@ -50,7 +50,7 @@ namespace ConsoleApp2
                 case '1':
                     Console.Write("Enter the Number : ");
                     n = double.Parse(Console.ReadLine());
-                    if (n<=0)
+                    if (n <= 0)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
                         Console.WriteLine("THE VALUES SHOULD NOT BE LESS THAN OR EQUALS TO 0\n");
@@ -117,7 +117,7 @@ namespace ConsoleApp2
                 case '6':
                     Console.WriteLine("ENTER THE NUMBER");
                     n = double.Parse(Console.ReadLine());
-                    if (n<=0)
+                    if (n <= 0)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
                         Console.WriteLine("THE VALUES SHOULD NOT BE LESS THAN OR EQUALS TO 0\n");
@@ -126,7 +126,7 @@ namespace ConsoleApp2
                     }
                     else
                     {
-                        Console.WriteLine("LOG10 OF {0} IS: {1}", n,1/(n));
+                        Console.WriteLine("LOG10 OF {0} IS: {1}", n, 1 / (n));
                     }
                     break;
                 case '7':
@@ -171,7 +171,7 @@ namespace ConsoleApp2
                     Console.WriteLine();
                     Console.Write("ENTER POWER OF ROOT: ");
                     int pow = int.Parse(Console.ReadLine());
-                    if(pow==0)
+                    if (pow == 0)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
                         Console.WriteLine("THE ROOT OF POWER 0 IS INDERTMINATE\n");
@@ -222,7 +222,7 @@ namespace ConsoleApp2
                 case '4':
                     Console.WriteLine("ENTER THE VALUE IN RADIAN");
                     n = double.Parse(Console.ReadLine());
-                    if (n<-1||n>1)
+                    if (n < -1 || n > 1)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
                         Console.WriteLine("THE VALUES SHOULD NOT BE LESS THAN -1 OR  GREATER THAN 1\n");
@@ -282,7 +282,7 @@ namespace ConsoleApp2
                     break;
             }
         }
-        
+
     }
-    
+
 }
