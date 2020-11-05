@@ -28,7 +28,7 @@ namespace ConsoleApp2
             Functions Function = new Functions();
             //Function.TRIGNOMETRY();
             ////Console.ReadLine();
-            Function.Logarthimic_Function();
+            Function.CONVERTER();
             Console.ReadLine();
         }
 
