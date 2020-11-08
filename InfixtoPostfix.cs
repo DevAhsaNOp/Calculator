@@ -78,7 +78,7 @@ namespace ConsoleApp2
                             stack.Push(result);
                             break;
                         case '/':
-                            if(op1==0)
+                            if (op1 == 0)
                             {
                                 throw new DivideByZero();
 

@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class MathError:MyException
+    class MathError : MyException
     {
         public MathError()
         {
             this.MSG = "MATH ERROR";
             Console.WriteLine("MATH ERROR OCCURED\n");
         }
-        
     }
 }

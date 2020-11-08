@@ -129,7 +129,7 @@ namespace ConsoleApp2
         void Dec_to_Bin(long dec)
         {
             int[] rem = new int[50];
-            int i=0, len = 0;
+            int i = 0, len = 0;
             do
             {
                 rem[i] = (int)dec % 2;
@@ -149,7 +149,7 @@ namespace ConsoleApp2
         void Dec_to_Oct(long dec)
         {
             int[] rem = new int[50];
-            int i=0, len = 0;
+            int i = 0, len = 0;
             do
             {
                 rem[i] = (int)dec % 8;
@@ -165,10 +165,10 @@ namespace ConsoleApp2
                 Console.Write(rem[i]);
             }
         }
-        void Dec_to_Hex(long  dec)
+        void Dec_to_Hex(long dec)
         {
             int[] rem = new int[50];
-            int i=0, len = 0;
+            int i = 0, len = 0;
             do
             {
                 rem[i] = (int)dec % 16;
@@ -208,10 +208,10 @@ namespace ConsoleApp2
 
             }
         }
-        void Oct_to_Bin(long  oct)
+        void Oct_to_Bin(long oct)
         {
             int[] rem = new int[50];
-            int len = 0,decimal1= 0, i = 0, num, ans;
+            int len = 0, decimal1 = 0, i = 0, ans;
 
             while (oct != 0)
             {
@@ -225,7 +225,7 @@ namespace ConsoleApp2
             do
             {
                 rem[i] = decimal1 % 2;
-                decimal1= decimal1 / 2;
+                decimal1 = decimal1 / 2;
                 i++;
                 len++;
             }
@@ -238,9 +238,9 @@ namespace ConsoleApp2
             }
         }
 
-        void Oct_to_Dec(long  oct)
+        void Oct_to_Dec(long oct)
         {
-            int decimal11= 0, i = 0, num, ans;
+            int decimal11 = 0, i = 0, ans;
 
             while (oct != 0)
             {
@@ -249,7 +249,7 @@ namespace ConsoleApp2
                 i++;
                 oct = oct / 10;
             }
-            Console.WriteLine("\nEquivalent decimal1 Number :"+decimal11);
+            Console.WriteLine("\nEquivalent decimal1 Number :" + decimal11);
         }
 
 
@@ -264,7 +264,7 @@ namespace ConsoleApp2
                     Console.WriteLine("ENTER BINARY NUMBER");
                     n = int.Parse(Console.ReadLine());
                     long x = Bin_to_Dec(n);
-                    Console.WriteLine("AMSWER IS: "+x);
+                    Console.WriteLine("AMSWER IS: " + x);
                     break;
                 case 2:
                     Console.WriteLine("ENTER BINARY NUMBER");
@@ -312,7 +312,7 @@ namespace ConsoleApp2
             while (a == 0 || c == 0 || b == 0)
             {
                 Console.WriteLine("error \n");
-                
+
                 Console.WriteLine("Enter values of a, b and c: ");
                 a = double.Parse(Console.ReadLine());
                 b = double.Parse(Console.ReadLine());
