@@ -28,8 +28,21 @@ namespace ConsoleApp2
             Functions Function = new Functions();
             //Function.TRIGNOMETRY();
             ////Console.ReadLine();
-            Function.CONVERTER();
-            Console.ReadLine();
+            //Console.WriteLine("ENTER THE VALUE OF A AND B");
+            //int a = int.Parse(Console.ReadLine());
+            //int b= int.Parse(Console.ReadLine());
+            //int c=Function.GCD(a, b);
+            //Console.WriteLine(c);
+            //int C = Function.LCM(a, b);
+            //Console.WriteLine(C);
+            int i = 0;
+            while (i==0)
+            {
+                Function.CONVERTER();
+                Console.WriteLine("\nCONTINUE 0 OR EXIT 1");
+                i = int.Parse(Console.ReadLine());
+            }
+            
         }
 
         public static bool CheckValid(string my_string)

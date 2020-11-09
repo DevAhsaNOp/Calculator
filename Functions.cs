@@ -8,6 +8,7 @@ namespace ConsoleApp2
 {
     class Functions
     {
+        #region CONVERTERS
         public double fact(double n)
         {
             if (n <= 1)
@@ -22,18 +23,18 @@ namespace ConsoleApp2
         {
             return fact(n) / (fact(r) * fact(n - r));
         }
-        public int GCD(int a, int b)
+        public long GCD(long a, long b)
         {
             if (a == 0)
-                return 0;
+                return b;
             return GCD(b % a, a);
         }
-        public int LCM(int a, int b)
+        public long LCM(long a, long b)
         {
             return (a * b) / GCD(a, b);
         }
 
-        public void root_of_power(double n, int pow)
+        public void root_of_power(double n, long pow)
         {
             double result = Math.Pow(n, (double)1 / pow);
             Console.Write("Root OF POWER {0} IS:{1}", pow, result);
@@ -45,178 +46,160 @@ namespace ConsoleApp2
             {
                 rem = bin % 10;
                 bin = bin / 10;
-                sum = sum + rem * (int)Math.Pow(2, i);
+                sum = sum + rem * (long)Math.Pow(2, i);
                 i++;
             }
             return sum;
         }
-        void Bin_to_Oct(long bin)
+        long Bin_to_Oct(long bin)
         {
-            int i = 0, len = 0;
-            int rem, sum = 0;
-            int[] remain = new int[100];
+            long i = 0, len = 0;
+            long rem, sum = 0;
+            string c = "0";
+            long Rem = 0, REVERSE = 0;
+            long[] remain = new long[100];
             while (bin != 0)
             {
-                rem = (int)bin % 10;
+                rem = (long)bin % 10;
                 bin = bin / 10;
-                sum = sum + rem * (int)Math.Pow(2, i);
+                sum = sum + rem * (long)Math.Pow(2, i);
                 i++;
             }
             i = 0;
             while (sum != 0)
             {
                 remain[i] = sum % 8;
+                c += remain[i].ToString();
                 sum = sum / 8;
                 i++;
                 len++;
             }
-            Console.WriteLine("\nEquivalent Octal Number : ");
-            for (i = len - 1; i >= 0; i--)
+            long C = long.Parse(c);
+            while (C!=0)
             {
-                Console.Write(remain[i]);
+                Rem = C % 10;
+                REVERSE = REVERSE * 10 + Rem;
+                C /= 10;
             }
+            return REVERSE;
         }
-        void Bin_to_Hex(long bin)
+        long length(long[] a)
         {
-            int rem, i = 0, sum = 0, len = 0;
-            int[] remain = new int[100];
+            long i = 0;
+            long L = 0;
+            while(a[i]!=0)
+            {
+                L++;
+                i++;
+            }
+            return L;
+        }
+        long[] Bin_to_Hex(long bin)
+        {
+            long rem, i = 0, sum = 0, len = 0;
+            string c="0";
+            string[] Remain = new string[100];
+            long[] remain = new long[100];
 
             while (bin != 0)
             {
-                rem = (int)bin % 10;
+                rem = (long)bin % 10;
                 bin = bin / 10;
-                sum = sum + rem * (int)Math.Pow(2, i);
+                sum = sum + rem * (long)Math.Pow(2, i);
                 i++;
             }
             i = 0;
             while (sum != 0)
             {
                 remain[i] = sum % 16;
+                c += remain[i].ToString() ;
                 sum = sum / 16;
                 i++;
                 len++;
             }
-            Console.WriteLine("\nEquivalent Hexa-decimal1 Number : ");
-            for (i = len - 1; i >= 0; i--)
-            {
-                switch (remain[i])
-                {
-                    case 10:
-                        Console.Write("A"); break;
-
-                    case 11:
-                        Console.Write("B"); break;
-
-                    case 12:
-                        Console.Write("C"); break;
-
-                    case 13:
-                        Console.Write("D"); break;
-
-                    case 14:
-                        Console.Write("E"); break;
-
-                    case 15:
-                        Console.Write("F"); break;
-
-                    default:
-                        Console.Write(remain[i]);
-                        break;
-                }
-
-            }
+            return remain;
+            
         }
-        void Dec_to_Bin(long dec)
+        long Dec_to_Bin(long dec)
         {
-            int[] rem = new int[50];
-            int i = 0, len = 0;
+            long[] rem = new long[50];
+            string c = "";
+            long Rem = 0, REVERSE = 0;
+            long i = 0, len = 0;
             do
             {
-                rem[i] = (int)dec % 2;
+                rem[i] = (long)dec % 2;
+                c += rem[i].ToString();
                 dec = dec / 2;
                 i++;
                 len++;
             }
             while (dec != 0);
-
-            Console.WriteLine("\nEquivalent Binary Number : ");
-            for (i = len - 1; i >= 0; i--)
+            long C = long.Parse(c);
+            i = 0;
+            while (i<len)
             {
-                Console.Write(rem[i]);
+                Rem = C % 10;
+                REVERSE = REVERSE * 10 + Rem;
+                C /= 10;
+                i++;
             }
+            return REVERSE;
         }
 
-        void Dec_to_Oct(long dec)
+        long Dec_to_Oct(long dec)
         {
-            int[] rem = new int[50];
-            int i = 0, len = 0;
+            long[] rem = new long[50];
+            long i = 0, len = 0;
+            string c = "";
+            long Rem = 0, REVERSE = 0;
             do
             {
-                rem[i] = (int)dec % 8;
+                rem[i] = (long)dec % 8;
+                c += rem[i].ToString();
                 dec = dec / 8;
                 i++;
                 len++;
             }
             while (dec != 0);
-
-            Console.WriteLine("\nEquivalent Octal Number : ");
-            for (i = len - 1; i >= 0; i--)
+            long C = long.Parse(c);
+            i = 0;
+            while (C!=0)
             {
-                Console.Write(rem[i]);
+                Rem = C % 10;
+                REVERSE = REVERSE * 10 + Rem;
+                C /= 10;
+                
             }
+            return REVERSE;
+
         }
-        void Dec_to_Hex(long dec)
+        long[] Dec_to_Hex(long dec)
         {
-            int[] rem = new int[50];
-            int i = 0, len = 0;
+            long[] rem = new long[50];
+            long i = 0, len = 0;
             do
             {
-                rem[i] = (int)dec % 16;
+                rem[i] = (long)dec % 16;
                 dec = dec / 16;
                 i++;
                 len++;
             }
             while (dec != 0);
-
-            Console.WriteLine("\nEquivalent Hexa-decimal1 Number : ");
-            for (i = len - 1; i >= 0; i--)
-            {
-                switch (rem[i])
-                {
-                    case 10:
-                        Console.Write("A"); break;
-
-                    case 11:
-                        Console.Write("B"); break;
-
-                    case 12:
-                        Console.Write("C"); break;
-
-                    case 13:
-                        Console.Write("D"); break;
-
-                    case 14:
-                        Console.Write("E"); break;
-
-                    case 15:
-                        Console.Write("F"); break;
-
-                    default:
-                        Console.Write(rem[i]);
-                        break;
-                }
-
-            }
+            return rem;
+            
         }
-        void Oct_to_Bin(long oct)
+        long Oct_to_Bin(long oct)
         {
-            int[] rem = new int[50];
-            int len = 0, decimal1 = 0, i = 0, ans;
+            long[] rem = new long[50];
+            long len = 0, decimal1 = 0, i = 0, ans;
+            string c = "";
+            long Rem = 0, REVERSE = 0;
 
             while (oct != 0)
             {
-                ans = (int)oct % 10;
-                decimal1 = decimal1 + ans * (int)Math.Pow(8, i);
+                ans = (long)oct % 10;
+                decimal1 = decimal1 + ans * (long)Math.Pow(8, i);
                 i++;
                 oct = oct / 10;
             }
@@ -225,82 +208,241 @@ namespace ConsoleApp2
             do
             {
                 rem[i] = decimal1 % 2;
+                c += rem[i].ToString();
                 decimal1 = decimal1 / 2;
                 i++;
                 len++;
             }
             while (decimal1 != 0);
-
-            Console.WriteLine("\nEquivalent Binary Number : ");
-            for (i = len - 1; i >= 0; i--)
+            long C = long.Parse(c);
+            while (C != 0)
             {
-                Console.WriteLine(rem[i]);
+                Rem = C % 10;
+                REVERSE = REVERSE * 10 + Rem;
+                C /= 10;
+
             }
+            return REVERSE;
+
         }
 
-        void Oct_to_Dec(long oct)
+        long Oct_to_Dec(long oct)
         {
-            int decimal11 = 0, i = 0, ans;
+            long  i = 0, ans;
+            long decimal1=0;
 
             while (oct != 0)
             {
-                ans = (int)oct % 10;
-                decimal11 = decimal11 + ans * (int)Math.Pow(8, i);
+                ans = (long)oct % 10;
+                decimal1 = decimal1 + ans * (long)Math.Pow(8, i);
                 i++;
                 oct = oct / 10;
             }
-            Console.WriteLine("\nEquivalent decimal1 Number :" + decimal11);
+            return decimal1;
         }
 
-
+        long[]  Oct_to_Hex(long oct)
+        {
+            long[] rem = new long[50];
+            long len = 0,decimal1= 0, i = 0, ans = 0;
+            while (oct != 0)
+            {
+                ans = oct % 10;
+                decimal1 = decimal1 + ans * (long)Math.Pow(8, i);
+                i++;
+                oct = oct / 10;
+            }
+            i = 0;
+            while (decimal1 != 0)
+            {
+                rem[i] = decimal1 % 16;
+                decimal1= decimal1 / 16;
+                i++;
+                len++;
+            }
+            return rem;
+        }
+        #endregion
+        long length(string a)
+        {
+            int i = 0;
+            long L = 0;
+            while (a[i] != 0)
+            {
+                L++;
+                i++;
+            }
+            return L;
+        }
+        
         public void CONVERTER()
         {
-            int n;
-            Console.WriteLine("ENTER\n1. BIN TO DEC\n2. BIN TO OCT\n3. BIN TO HEX\n4. DEC TO BIN\n5. DEC TO OCT\n6. OCT TO BIN\n7. OCT TO DEC\n");
-            int I = int.Parse(Console.ReadLine());
+            long n,Length,i;
+            long X;
+            long[] N = new long[100];
+            Console.WriteLine("ENTER\n1. BIN TO DEC\n2. BIN TO OCT\n3. BIN TO HEX\n4. DEC TO BIN\n5. DEC TO OCT\n6. DEC TO HEX\n7. OCT TO BIN\n8. OCT TO DEC\n9. OCT TO HEX\n10. HEX TO BIN\n");
+            long I = long.Parse(Console.ReadLine());
             switch (I)
             {
                 case 1:
                     Console.WriteLine("ENTER BINARY NUMBER");
-                    n = int.Parse(Console.ReadLine());
+                    n = long.Parse(Console.ReadLine());
                     long x = Bin_to_Dec(n);
                     Console.WriteLine("AMSWER IS: " + x);
                     break;
                 case 2:
                     Console.WriteLine("ENTER BINARY NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Bin_to_Oct(n);
+                    n = long.Parse(Console.ReadLine());
+                    X=Bin_to_Oct(n);
+                    //Length = length(Bin_to_Oct(n));
+                    Console.WriteLine("\nEquivalent Octal Number : ");
+                    Console.WriteLine(X);
                     break;
                 case 3:
                     Console.WriteLine("ENTER BINARY NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Bin_to_Hex(n);
+                    n = long.Parse(Console.ReadLine());
+                    N=Bin_to_Hex(n);
+                    Length = length(Bin_to_Hex(n));
+                    Console.WriteLine("\nEquivalent Hexa-decimal1 Number : ");
+                    for (i = Length - 1; i >= 0; i--)
+                    {
+                        switch (N[i])
+                        {
+                            case 10:
+                                Console.Write("A"); break;
+
+                            case 11:
+                                Console.Write("B"); break;
+
+                            case 12:
+                                Console.Write("C"); break;
+
+                            case 13:
+                                Console.Write("D"); break;
+
+                            case 14:
+                                Console.Write("E"); break;
+
+                            case 15:
+                                Console.Write("F"); break;
+
+                            default:
+                                Console.Write(N[i]);
+                                break;
+                        }
+
+                    }
                     break;
                 case 4:
                     Console.WriteLine("ENTER DECIMAL NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Dec_to_Bin(n);
+                    n = long.Parse(Console.ReadLine());
+                    X = Dec_to_Bin(n);
+                    Console.WriteLine("EQUIVALENT BINARY NUMBER: ");
+                    Console.WriteLine(X);
                     break;
                 case 5:
                     Console.WriteLine("ENTER DECIMAL NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Dec_to_Oct(n);
+                    n = long.Parse(Console.ReadLine());
+                    X=Dec_to_Oct(n);
+                    Console.WriteLine("EQUIVALENT OCTAL NUMBER: ");
+                    Console.WriteLine(X);
+
                     break;
                 case 6:
-                    Console.WriteLine("ENTER OCTAL NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Oct_to_Bin(n);
+                    Console.WriteLine("ENTER DECIMAL NUMBER");
+                    n = long.Parse(Console.ReadLine());
+                    N = Dec_to_Hex(n);
+                    Length = length(Dec_to_Hex(n));
+
+                    Console.WriteLine("\nEquivalent Hexa-decimal1 Number : ");
+                    for (i = Length - 1; i >= 0; i--)
+                    {
+                        switch (N[i])
+                        {
+                            case 10:
+                                Console.Write("A"); break;
+
+                            case 11:
+                                Console.Write("B"); break;
+
+                            case 12:
+                                Console.Write("C"); break;
+
+                            case 13:
+                                Console.Write("D"); break;
+
+                            case 14:
+                                Console.Write("E"); break;
+
+                            case 15:
+                                Console.Write("F"); break;
+
+                            default:
+                                Console.Write(N[i]);
+                                break;
+                        }
+
+                    }
                     break;
                 case 7:
                     Console.WriteLine("ENTER OCTAL NUMBER");
-                    n = int.Parse(Console.ReadLine());
-                    Oct_to_Dec(n);
-                    break;
+                    n = long.Parse(Console.ReadLine());
+                   X = Oct_to_Bin(n);
+                    Console.WriteLine("EQUIVALENT BINARY NUMBER: ");
+                    Console.WriteLine(X);
 
+                    break;
+                case 8:
+                    Console.WriteLine("ENTER OCTAL NUMBER");
+                    n = long.Parse(Console.ReadLine());
+                   X= Oct_to_Dec(n);
+                    Console.WriteLine("EQUIVALENT DECIMAL NUMBER: ");
+                    Console.WriteLine(X);
+
+                    break;
+                case 9:
+                    Console.WriteLine("ENTER OCTAL NUMBER");
+                    n = long.Parse(Console.ReadLine());
+                    N = Oct_to_Hex(n);
+                    Length = length(Dec_to_Hex(n));
+
+                    Console.WriteLine("\nEquivalent Hexa-Decimal Number : ");
+                    for (i = Length - 1; i >= 0; i--)
+                    {
+                        switch (N[i])
+                        {
+                            case 10:
+                                Console.Write("A"); break;
+
+                            case 11:
+                                Console.Write("B"); break;
+
+                            case 12:
+                                Console.Write("C"); break;
+
+                            case 13:
+                                Console.Write("D"); break;
+
+                            case 14:
+                                Console.Write("E"); break;
+
+                            case 15:
+                                Console.Write("F"); break;
+
+                            default:
+                                Console.Write(N[i]);
+                                break;
+                        }
+
+                    }
+                    break;
+               
+                    
                 default:
                     break;
             }
         }
+        
         public void EQUATION()
         {
             double a, b, c, real, determinant, root1, root2, imaginaryPart;
@@ -407,7 +549,7 @@ namespace ConsoleApp2
                     break;
                 case '5':
                     Console.WriteLine("ENTER THE NUMBER:");
-                    int x = int.Parse(Console.ReadLine());
+                    long x = long.Parse(Console.ReadLine());
                     if (x < 0)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
@@ -476,7 +618,7 @@ namespace ConsoleApp2
                     n = Convert.ToDouble(Console.ReadLine());
                     Console.WriteLine();
                     Console.Write("ENTER POWER OF ROOT: ");
-                    int pow = int.Parse(Console.ReadLine());
+                    long pow = long.Parse(Console.ReadLine());
                     if (pow == 0)
                     {
 #pragma warning disable CS0162 // Unreachable code detected
